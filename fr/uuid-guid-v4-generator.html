@@ -1005,8 +1005,7 @@
   [chkHyphens, chkUpper, chkBraces].forEach(el => el.addEventListener('change', renderBatch));
 
   btnCopyAll.addEventListener('click', () => {
-    const all = Array.from(document.querySelectorAll('.btn-copy-one')).map(b => b.getAttribute('data-val')).join('
-');
+    const all = Array.from(document.querySelectorAll('.btn-copy-one')).map(b => b.getAttribute('data-val')).join('\n');
     if (!all) return;
     navigator.clipboard.writeText(all).then(() => {
       const origHtml = btnCopyAll.innerHTML;

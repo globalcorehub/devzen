@@ -948,6 +948,17 @@
 (function() {
   const inputEl = document.getElementById('jwt-input');
   const banner = document.getElementById('jwt-banner');
+  const errorMessage = document.createElement('div');
+  errorMessage.className = 'mt-4 text-rose-400 text-sm hidden';
+  errorMessage.setAttribute('role', 'status');
+  banner.before(errorMessage);
+  function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.classList.remove('hidden');
+    banner.classList.add('hidden');
+    hdrOut.innerText = '-';
+    payOut.innerText = '-';
+  }
   const statusBadge = document.getElementById('jwt-status-badge');
   const statusText = document.getElementById('jwt-status-text');
   const algInfo = document.getElementById('jwt-alg-info');
@@ -967,6 +978,7 @@
 
   function parseJwt() {
     const token = inputEl.value.trim();
+    errorMessage.classList.add('hidden');
     if (!token) {
       banner.classList.add('hidden');
       hdrOut.innerText = '等待输入 JWT 令牌...';
@@ -975,26 +987,29 @@
     }
 
     const parts = token.split('.');
-    if (parts.length < 2) {
-      banner.className = 'mt-4 p-3 rounded-xl border border-rose-500/30 bg-rose-500/10 font-mono text-xs flex items-center text-rose-400';
-      banner.innerHTML = '&#x2717; JWT 格式错误：必须包含由点号(.)分隔的标头与有效负载';
-      banner.classList.remove('hidden');
+    if (parts.length !== 3 || !parts[0] || !parts[1]) {
+      showError('✗ JWT 格式错误：必须包含由点号(.)分隔的标头与有效负载');
       return;
     }
 
     try {
       const headerObj = JSON.parse(b64url_decode(parts[0]));
       const payloadObj = JSON.parse(b64url_decode(parts[1]));
+      if (!headerObj || Array.isArray(headerObj) || typeof headerObj !== 'object' ||
+          !payloadObj || Array.isArray(payloadObj) || typeof payloadObj !== 'object' ||
+          ('exp' in payloadObj && (typeof payloadObj.exp !== 'number' || !Number.isFinite(payloadObj.exp) || !Number.isFinite(new Date(payloadObj.exp * 1000).getTime())))) {
+        throw new Error('Invalid JWT claims');
+      }
 
       hdrOut.innerText = JSON.stringify(headerObj, null, 2);
       payOut.innerText = JSON.stringify(payloadObj, null, 2);
 
       algInfo.innerText = 'Algorithm: ' + (headerObj.alg || 'none') + ' • Typ: ' + (headerObj.typ || 'JWT');
 
-      if (payloadObj.exp) {
+      if ('exp' in payloadObj) {
         const expDate = new Date(payloadObj.exp * 1000);
         const now = new Date();
-        if (now > expDate) {
+        if (now >= expDate) {
           statusBadge.className = 'px-2 py-0.5 rounded text-[11px] font-bold bg-rose-500 text-white';
           statusBadge.innerText = '已过期 (Expired)';
           statusText.innerText = '已于 {date} 过期: ' + expDate.toLocaleString();
@@ -1012,9 +1027,7 @@
       banner.className = 'mt-4 p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-white/5 font-mono text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2';
       banner.classList.remove('hidden');
     } catch (err) {
-      banner.className = 'mt-4 p-3 rounded-xl border border-rose-500/30 bg-rose-500/10 font-mono text-xs flex items-center text-rose-400';
-      banner.innerHTML = '&#x2717; ' + err.message;
-      banner.classList.remove('hidden');
+      showError('✗ ' + err.message);
     }
   }
 

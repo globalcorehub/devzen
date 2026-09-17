@@ -994,7 +994,7 @@
         container.innerHTML = '<span class="opacity-50">Keine Treffer gefunden.</span>';
       } else {
         container.innerHTML = matches.map((m, idx) => {
-          const grpHtml = m.groups.length ? '<div class="opacity-60 text-[11px] mt-0.5">' + m.groups.map((g, gi) => 'Gruppe ' + (gi+1) + ': ' + (g || 'undefined')).join(' | ') + '</div>' : '';
+          const grpHtml = m.groups.length ? '<div class="opacity-60 text-[11px] mt-0.5">' + m.groups.map((g, gi) => 'Gruppe ' + (gi+1) + ': ' + escapeHtml(g === undefined ? 'undefined' : g)).join(' | ') + '</div>' : '';
           return '<div class="p-2 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-1">' +
             '<div><span class="font-bold text-emerald-400 mr-2">Treffer #{n} #' + (idx + 1) + '</span><span class="font-mono bg-black/40 px-1.5 py-0.5 rounded">' + escapeHtml(m.val) + '</span>' + grpHtml + '</div>' +
             '<span class="opacity-50 text-[10px] font-mono">Position:: ' + m.index + '</span>' +
@@ -1003,7 +1003,7 @@
       }
     } catch (err) {
       badge.innerText = 'Syntaxfehler';
-      container.innerHTML = '<div class="p-2 rounded-lg bg-rose-500/10 text-rose-400 border border-rose-500/20 font-mono text-xs">&#x2717; ' + err.message + '</div>';
+      container.innerHTML = '<div class="p-2 rounded-lg bg-rose-500/10 text-rose-400 border border-rose-500/20 font-mono text-xs">&#x2717; ' + escapeHtml(err.message) + '</div>';
     }
   }
 
