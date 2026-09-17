@@ -217,6 +217,48 @@
       box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.45) !important;
       border-color: rgb(16, 185, 129) !important;
     }
+
+    /* Fluid Motion & Micro-Interactions Suite */
+    @keyframes subtle-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes ambient-glow {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.06); }
+    }
+    @keyframes shimmer-sweep {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+    @keyframes spring-pop {
+      0% { transform: scale(0.6); opacity: 0; }
+      60% { transform: scale(1.2); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .motion-float {
+      animation: subtle-float 6s ease-in-out infinite;
+    }
+    .motion-glow {
+      animation: ambient-glow 7s ease-in-out infinite;
+    }
+    .motion-card {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+      will-change: transform;
+    }
+    .motion-card:hover {
+      transform: translateY(-4px);
+    }
+    .motion-btn {
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+      will-change: transform;
+    }
+    .motion-btn:active {
+      transform: scale(0.96);
+    }
+    .spring-pop {
+      animation: spring-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
   </style>
 
   <!-- Structured Data JSON-LD (WebSite & SearchAction) -->
@@ -270,56 +312,6 @@
 
   <!-- Google AdSense Monetization (Activated when site traffic qualifies and client ID is set) -->
   
-
-  <!-- Fluid Motion & Micro-Interactions Suite -->
-  <style>
-    @keyframes subtle-float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-    @keyframes ambient-glow {
-      0%, 100% { opacity: 0.35; transform: scale(1); }
-      50% { opacity: 0.65; transform: scale(1.06); }
-    }
-    @keyframes shimmer-sweep {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(200%); }
-    }
-    @keyframes spring-pop {
-      0% { transform: scale(0.6); opacity: 0; }
-      60% { transform: scale(1.2); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    @keyframes pulse-ring {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-    }
-    .motion-float {
-      animation: subtle-float 6s ease-in-out infinite;
-    }
-    .motion-glow {
-      animation: ambient-glow 7s ease-in-out infinite;
-    }
-    .motion-card {
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
-      will-change: transform;
-    }
-    .motion-card:hover {
-      transform: translateY(-4px);
-    }
-    .motion-btn {
-      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
-      will-change: transform;
-    }
-    .motion-btn:active {
-      transform: scale(0.96);
-    }
-    .spring-pop {
-      animation: spring-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    }
-  </style>
-
 </head>
 <body class="bg-[#0c0e14] text-[#e2e8f0] min-h-screen flex flex-col transition-colors duration-200">
 
@@ -368,7 +360,7 @@
           <div id="tools-dropdown-panel" class="hidden absolute left-0 mt-1.5 w-72 sm:w-80 rounded-2xl bg-[#11141d] border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] shadow-2xl z-50 p-2 font-mono text-xs backdrop-blur-xl">
             <div class="flex items-center justify-between px-2.5 py-1 text-[10px] uppercase tracking-wider opacity-50 border-b border-white/10 mb-1">
               <span>Índice Geral de Ferramentas de Desenvolvimento</span>
-              <span>28 Todas as Ferramentas</span>
+              <span>37 Todas as Ferramentas</span>
             </div>
             <div class="max-h-72 overflow-y-auto space-y-0.5">
               
@@ -596,6 +588,78 @@
                 <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
               </a>
               
+              <a href="/pt/json-formatter-validator" title="Formatador, Embelezador e Validador JSON Online" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Formato JSON</div>
+                  <div class="text-[10px] opacity-50 truncate">Formate, embeleze, valide e minifique estruturas JSON em tempo real diretamente no navegador, com total privacidade e sem envio de dados.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/pt/base64-encoder-decoder" title="Codificador e Decodificador Base64 Online (UTF-8 e URL-Safe)" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Base64 Codec</div>
+                  <div class="text-[10px] opacity-50 truncate">Converta texto comum para Base64 e decodifique sequências Base64 instantaneamente, com suporte a acentos, UTF-8 e URLs seguras.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/pt/regex-tester-debugger" title="Testador e Depurador de Expressões Regulares (RegEx)" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Testador RegEx</div>
+                  <div class="text-[10px] opacity-50 truncate">Teste padrões RegEx em tempo real com realce visual de correspondências, grupos de captura e biblioteca de expressões para e-mails, URLs e IPs.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/pt/jwt-token-decoder" title="Decodificador de Tokens JWT e Verificador de Expiração" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Decodificador JWT</div>
+                  <div class="text-[10px] opacity-50 truncate">Decodifique tokens JWT no próprio navegador para visualizar cabeçalhos, payloads e prazos de validade com total sigilo dos dados.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/pt/hash-generator-md5-sha256" title="Gerador de Hashes Criptográficos (MD5, SHA-256, SHA-512)" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Gerador Hash</div>
+                  <div class="text-[10px] opacity-50 truncate">Gere hashes criptográficos ultra-rápidos para strings com MD5, SHA-1, SHA-256 e SHA-512 usando aceleração de hardware no navegador.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/pt/unix-timestamp-epoch-converter" title="Conversor de Timestamp Unix Epoch para Data Legível" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Timestamp Unix</div>
+                  <div class="text-[10px] opacity-50 truncate">Converta timestamps Unix em segundos e milissegundos para horário local brasileiro, UTC e ISO-8601 com relógio digital em tempo real.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/pt/uuid-guid-v4-generator" title="Gerador de UUID e GUID v4 Online (Criptografia CSPRNG)" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Gerador UUID</div>
+                  <div class="text-[10px] opacity-50 truncate">Gere múltiplos identificadores UUIDv4 e GUID em lote de forma aleatória, segura e compatível com a RFC 4122 diretamente no navegador.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/pt/url-encoder-decoder-parser" title="Codificador e Decodificador URL Online (RFC 3986)" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Codec URL</div>
+                  <div class="text-[10px] opacity-50 truncate">Codifique e decodifique endereços URL e parâmetros com conformidade RFC 3986 e análise estruturada de consultas.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/pt/text-diff-checker-compare" title="Comparador de Texto e Diff de Código Online" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Comparador Diff</div>
+                  <div class="text-[10px] opacity-50 truncate">Compare textos ou códigos lado a lado no navegador com destaque visual colorido para adições, remoções e alterações.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
             </div>
             <div class="mt-1.5 pt-1.5 border-t border-white/10 px-2 flex items-center justify-between">
               <a href="/pt/#tools-grid" class="text-[11px] font-bold hover:underline flex items-center space-x-1" style="color: #10b981">
@@ -618,13 +682,15 @@
       <!-- Action Items & Language Selector & Quick Search & Mobile Hamburger -->
       <div class="flex items-center space-x-2 sm:space-x-3">
         <!-- Quick Search Trigger in Header -->
-          <button id="global-search-btn" type="button" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-black/15 hover:bg-black/30 text-xs font-mono opacity-80 hover:opacity-100 transition" title="Pesquisar ferramentas por palavra-chave ou extensão... (Pressione /)">
+        <button id="global-search-btn" type="button" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-black/15 hover:bg-black/30 text-xs font-mono opacity-80 hover:opacity-100 transition" title="Pesquisar ferramentas por palavra-chave ou extensão... (Pressione /)">
           <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
           <span class="hidden sm:inline opacity-70">Pesquisar</span>
           <kbd class="hidden sm:inline text-[9px] px-1 py-0.5 rounded border border-[#1e2333] hover:border-[#10b981]/50 opacity-50 bg-black/20 font-mono">Ctrl+K</kbd>
         </button>
+
+
 
         <!-- 7-Language International Dropdown -->
         <div class="relative inline-block text-left" id="lang-container">
@@ -689,6 +755,8 @@
     <div id="mobile-menu" class="hidden md:hidden border-t border-[#1e2333] bg-[#11141d]/90 backdrop-blur-md px-4 pt-3 pb-5 space-y-2 backdrop-blur-lg">
       <a href="/pt/" class="block px-3 py-2 rounded-xl text-sm font-semibold hover:bg-white/10 transition">Início</a>
 
+
+
       <!-- Quick Search Trigger in Mobile Drawer -->
       <button id="mobile-search-trigger" type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-black/20 text-xs font-mono opacity-80">
         <span class="flex items-center space-x-2">
@@ -702,7 +770,7 @@
 
       <!-- Tools Group in Mobile Drawer -->
       <div class="pt-2 border-t border-[#1e2333]">
-        <div class="text-[10px] font-mono uppercase tracking-wider opacity-50 px-3 mb-1">Todas as Ferramentas (28)</div>
+        <div class="text-[10px] font-mono uppercase tracking-wider opacity-50 px-3 mb-1">Todas as Ferramentas (37)</div>
         <div class="space-y-1 max-h-60 overflow-y-auto">
           
           <a href="/pt/json-formatter-validator" title="Formatador, Embelezador e Validador JSON Online" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
@@ -845,6 +913,51 @@
             <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
           </a>
           
+          <a href="/pt/json-formatter-validator" title="Formatador, Embelezador e Validador JSON Online" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Formato JSON</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/pt/base64-encoder-decoder" title="Codificador e Decodificador Base64 Online (UTF-8 e URL-Safe)" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Base64 Codec</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/pt/regex-tester-debugger" title="Testador e Depurador de Expressões Regulares (RegEx)" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Testador RegEx</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/pt/jwt-token-decoder" title="Decodificador de Tokens JWT e Verificador de Expiração" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Decodificador JWT</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/pt/hash-generator-md5-sha256" title="Gerador de Hashes Criptográficos (MD5, SHA-256, SHA-512)" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Gerador Hash</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/pt/unix-timestamp-epoch-converter" title="Conversor de Timestamp Unix Epoch para Data Legível" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Timestamp Unix</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/pt/uuid-guid-v4-generator" title="Gerador de UUID e GUID v4 Online (Criptografia CSPRNG)" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Gerador UUID</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/pt/url-encoder-decoder-parser" title="Codificador e Decodificador URL Online (RFC 3986)" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Codec URL</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/pt/text-diff-checker-compare" title="Comparador de Texto e Diff de Código Online" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Comparador Diff</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
         </div>
       </div>
     </div>
@@ -872,7 +985,7 @@
 
       <div class="max-w-2xl mx-auto mb-8 sm:mb-12 px-2">
         <div id="search-section" class="relative flex items-center scroll-mt-28 sm:scroll-mt-36">
-              <div class="absolute left-4 opacity-50 pointer-events-none">
+          <div class="absolute left-4 opacity-50 pointer-events-none">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
             </svg>
@@ -884,7 +997,7 @@
           </div>
         </div>
         <div class="flex items-center justify-between text-[11px] font-mono opacity-60 mt-2.5 px-1">
-          <span id="search-stats">Mostrando todas as 28 ferramentas disponíveis</span>
+          <span id="search-stats">Mostrando todas as 37 ferramentas disponíveis</span>
           <span class="hidden sm:inline">100% Processamento no Navegador</span>
         </div>
       </div>
@@ -916,6 +1029,15 @@
 <a href="/pt/developer-api-curl-command-generator-download-2" data-search="developer api & curl command generator download 2 use the best online developer api & curl command generator download 2 tool. fast, accurate, and completely free in your browser. developer api & curl command generator without watermark 2 developer api & curl command generator for beginners 2 developer api & curl command generator interactive 2 developer api & curl command generator open source 2 developer-api-curl-command-generator-download-2" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Developer Api & Curl Command Generator Download 2</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Use the best online Developer API & cURL Command Generator download 2 tool. Fast, accurate, and completely free in your browser.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#Developer API & cURL Command Generator without watermark 2</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#Developer API & cURL Command Generator for beginners 2</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#Developer API & cURL Command Generator interactive 2</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
 <a href="/pt/developer-api-curl-command-generator-tips-2" data-search="developer api & curl command generator tips 2 use the best online developer api & curl command generator tips 2 tool. fast, accurate, and completely free in your browser. developer api & curl command generator vs alternatives 2 developer api & curl command generator free online 3 developer api & curl command generator best 3 developer api & curl command generator fast 3 developer-api-curl-command-generator-tips-2" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Developer Api & Curl Command Generator Tips 2</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Use the best online Developer API & cURL Command Generator tips 2 tool. Fast, accurate, and completely free in your browser.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#Developer API & cURL Command Generator vs alternatives 2</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#Developer API & cURL Command Generator free online 3</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#Developer API & cURL Command Generator best 3</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
 <a href="/pt/developer-api-curl-command-generator-instant-3" data-search="developer api & curl command generator instant 3 use the best online developer api & curl command generator instant 3 tool. fast, accurate, and completely free in your browser. developer api & curl command generator calculator 3 developer api & curl command generator generator 3 developer api & curl command generator converter 3 developer api & curl command generator checker 3 developer-api-curl-command-generator-instant-3" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Developer Api & Curl Command Generator Instant 3</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Use the best online Developer API & cURL Command Generator instant 3 tool. Fast, accurate, and completely free in your browser.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#Developer API & cURL Command Generator calculator 3</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#Developer API & cURL Command Generator generator 3</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#Developer API & cURL Command Generator converter 3</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
+<a href="/pt/json-formatter-validator" data-search="formatador, embelezador e validador json online formate, embeleze, valide e minifique estruturas json em tempo real diretamente no navegador, com total privacidade e sem envio de dados. formatador json online gratis validar json syntax organizar json online identar json online embelezar json gratis minificar json parser json rapido verificar json valido formatar arquivo json leitor json online json-formatter-validator" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Formatador, Embelezador e Validador JSON Online</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Formate, embeleze, valide e minifique estruturas JSON em tempo real diretamente no navegador, com total privacidade e sem envio de dados.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#formatador json online gratis</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#validar json syntax</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#organizar json online</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
+<a href="/pt/base64-encoder-decoder" data-search="codificador e decodificador base64 online (utf-8 e url-safe) converta texto comum para base64 e decodifique sequências base64 instantaneamente, com suporte a acentos, utf-8 e urls seguras. codificar base64 online decodificar base64 gratis converter base64 para texto converter texto em base64 descriptografar base64 base64 seguro para url transformar base64 em string base64 decodificador brasil base64-encoder-decoder" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Codificador e Decodificador Base64 Online (UTF-8 e URL-Safe)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Converta texto comum para Base64 e decodifique sequências Base64 instantaneamente, com suporte a acentos, UTF-8 e URLs seguras.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#codificar base64 online</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#decodificar base64 gratis</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#converter base64 para texto</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
+<a href="/pt/regex-tester-debugger" data-search="testador e depurador de expressões regulares (regex) teste padrões regex em tempo real com realce visual de correspondências, grupos de captura e biblioteca de expressões para e-mails, urls e ips. testador regex online testar expressoes regulares depurador regex online validador de regex brasil regex validar email testar regex javascript verificador de expressoes regulares padroes regex prontos regex-tester-debugger" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Testador e Depurador de Expressões Regulares (RegEx)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Teste padrões RegEx em tempo real com realce visual de correspondências, grupos de captura e biblioteca de expressões para e-mails, URLs e IPs.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#testador regex online</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#testar expressoes regulares</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#depurador regex online</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
+<a href="/pt/jwt-token-decoder" data-search="decodificador de tokens jwt e verificador de expiração decodifique tokens jwt no próprio navegador para visualizar cabeçalhos, payloads e prazos de validade com total sigilo dos dados. decodificar jwt online gratis analisar token jwt ver dados token jwt verificar validade jwt leitor jwt online jwt claims visualizar depurador jwt brasil inspecionar token jwt jwt-token-decoder" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Decodificador de Tokens JWT e Verificador de Expiração</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Decodifique tokens JWT no próprio navegador para visualizar cabeçalhos, payloads e prazos de validade com total sigilo dos dados.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#decodificar jwt online gratis</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#analisar token jwt</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#ver dados token jwt</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
+<a href="/pt/hash-generator-md5-sha256" data-search="gerador de hashes criptográficos (md5, sha-256, sha-512) gere hashes criptográficos ultra-rápidos para strings com md5, sha-1, sha-256 e sha-512 usando aceleração de hardware no navegador. gerador de hash online gratis calcular hash sha256 gerar hash md5 online criptografia sha1 online gerar hash de texto calculadora sha256 brasil hash criptografico online gerar checksum sha512 hash-generator-md5-sha256" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Gerador de Hashes Criptográficos (MD5, SHA-256, SHA-512)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Gere hashes criptográficos ultra-rápidos para strings com MD5, SHA-1, SHA-256 e SHA-512 usando aceleração de hardware no navegador.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#gerador de hash online gratis</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#calcular hash sha256</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#gerar hash md5 online</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
+<a href="/pt/unix-timestamp-epoch-converter" data-search="conversor de timestamp unix epoch para data legível converta timestamps unix em segundos e milissegundos para horário local brasileiro, utc e iso-8601 com relógio digital em tempo real. conversor timestamp unix online timestamp para data brasil converter data em epoch converter timestamp milissegundos hora unix para data legivel relogio epoch em tempo real calcular timestamp unix obter timestamp atual unix-timestamp-epoch-converter" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Conversor de Timestamp Unix Epoch para Data Legível</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Converta timestamps Unix em segundos e milissegundos para horário local brasileiro, UTC e ISO-8601 com relógio digital em tempo real.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#conversor timestamp unix online</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#timestamp para data brasil</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#converter data em epoch</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
+<a href="/pt/uuid-guid-v4-generator" data-search="gerador de uuid e guid v4 online (criptografia csprng) gere múltiplos identificadores uuidv4 e guid em lote de forma aleatória, segura e compatível com a rfc 4122 diretamente no navegador. gerador de uuid online gratis criar guid v4 online gerar uuid em lote identificador unico aleatorio uuid sem hifens online gerador guid seguro uuid maiusculo online uuidv4 rfc 4122 uuid-guid-v4-generator" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Gerador de UUID e GUID v4 Online (Criptografia CSPRNG)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Gere múltiplos identificadores UUIDv4 e GUID em lote de forma aleatória, segura e compatível com a RFC 4122 diretamente no navegador.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#gerador de uuid online gratis</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#criar guid v4 online</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#gerar uuid em lote</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
+<a href="/pt/url-encoder-decoder-parser" data-search="codificador e decodificador url online (rfc 3986) codifique e decodifique endereços url e parâmetros com conformidade rfc 3986 e análise estruturada de consultas. codificador url online gratis decodificar url online converter urlencode analisador de parametros url ferramenta url decoder percent encoding brasil decodificar link seguro formatador url online url-encoder-decoder-parser" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Codificador e Decodificador URL Online (RFC 3986)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Codifique e decodifique endereços URL e parâmetros com conformidade RFC 3986 e análise estruturada de consultas.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#codificador url online gratis</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#decodificar url online</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#converter urlencode</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
+<a href="/pt/text-diff-checker-compare" data-search="comparador de texto e diff de código online compare textos ou códigos lado a lado no navegador com destaque visual colorido para adições, remoções e alterações. comparador de texto online gratis comparar dois textos online ver diferencas de texto ferramenta diff online comparador de codigo lado a lado comparar strings online encontrar mudancas texto diff visual online text-diff-checker-compare" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Comparador de Texto e Diff de Código Online</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Compare textos ou códigos lado a lado no navegador com destaque visual colorido para adições, remoções e alterações.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#comparador de texto online gratis</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#comparar dois textos online</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#ver diferencas de texto</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
 <a href="/pt/json-formatter-validator" data-search="formatador, embelezador e validador json online formate, embeleze, valide e minifique estruturas json em tempo real diretamente no navegador, com total privacidade e sem envio de dados. formatador json online gratis validar json syntax organizar json online identar json online embelezar json gratis minificar json parser json rapido verificar json valido formatar arquivo json leitor json online json-formatter-validator" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Formatador, Embelezador e Validador JSON Online</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Formate, embeleze, valide e minifique estruturas JSON em tempo real diretamente no navegador, com total privacidade e sem envio de dados.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#formatador json online gratis</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#validar json syntax</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#organizar json online</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
 <a href="/pt/base64-encoder-decoder" data-search="codificador e decodificador base64 online (utf-8 e url-safe) converta texto comum para base64 e decodifique sequências base64 instantaneamente, com suporte a acentos, utf-8 e urls seguras. codificar base64 online decodificar base64 gratis converter base64 para texto converter texto em base64 descriptografar base64 base64 seguro para url transformar base64 em string base64 decodificador brasil base64-encoder-decoder" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Codificador e Decodificador Base64 Online (UTF-8 e URL-Safe)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Converta texto comum para Base64 e decodifique sequências Base64 instantaneamente, com suporte a acentos, UTF-8 e URLs seguras.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#codificar base64 online</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#decodificar base64 gratis</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#converter base64 para texto</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
 <a href="/pt/regex-tester-debugger" data-search="testador e depurador de expressões regulares (regex) teste padrões regex em tempo real com realce visual de correspondências, grupos de captura e biblioteca de expressões para e-mails, urls e ips. testador regex online testar expressoes regulares depurador regex online validador de regex brasil regex validar email testar regex javascript verificador de expressoes regulares padroes regex prontos regex-tester-debugger" class="tool-card bg-[#11141d] rounded-xl p-5 sm:p-6 border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% Local</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Testador e Depurador de Expressões Regulares (RegEx)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">Teste padrões RegEx em tempo real com realce visual de correspondências, grupos de captura e biblioteca de expressões para e-mails, URLs e IPs.</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#testador regex online</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#testar expressoes regulares</span><span class='inline-block bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#depurador regex online</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #10b981"><span>Abrir Utilitário</span><span>&rarr;</span></div></div></a>
@@ -1003,6 +1125,21 @@
     
 
     
+    <!-- GlobalCoreHub Native Multi-Format Ad Slot -->
+    <aside class="my-8 mx-auto max-w-5xl px-2 sm:px-4" aria-label="Sponsored Partner Content">
+      <div class="rounded-2xl border border-[#1e2333] hover:border-[#10b981]/50 bg-black/[0.03] dark:bg-white/[0.03] p-3 sm:p-5 text-center overflow-hidden transition-all">
+        <div class="text-[10px] uppercase font-mono tracking-widest opacity-40 mb-2.5 flex items-center justify-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span>SPONSORED PARTNER CONTENT</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+        </div>
+        <div id="container-411eda7150daa05047a0b4f542aa62eb" class="min-h-[100px] flex items-center justify-center"></div>
+        <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/411eda7150daa05047a0b4f542aa62eb/invoke.js"></script>
+      </div>
+    </aside>
+    
+
+    
   </main>
 
   <!-- Internal Linking Matrix -->
@@ -1012,7 +1149,7 @@
         <h3 class="text-sm font-bold uppercase tracking-wider opacity-80 font-mono">
           [+] Índice Geral de Ferramentas de Desenvolvimento
         </h3>
-        <span class="text-xs opacity-60 font-mono">28 Todas as Ferramentas</span>
+        <span class="text-xs opacity-60 font-mono">37 Todas as Ferramentas</span>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -1269,6 +1406,87 @@
           </p>
         </a>
         
+        <a href="/pt/json-formatter-validator" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Formatador, Embelezador e Validador JSON Online
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Formate, embeleze, valide e minifique estruturas JSON em tempo real diretamente no navegador, com total privacidade e sem envio de dados.
+          </p>
+        </a>
+        
+        <a href="/pt/base64-encoder-decoder" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Codificador e Decodificador Base64 Online (UTF-8 e URL-Safe)
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Converta texto comum para Base64 e decodifique sequências Base64 instantaneamente, com suporte a acentos, UTF-8 e URLs seguras.
+          </p>
+        </a>
+        
+        <a href="/pt/regex-tester-debugger" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Testador e Depurador de Expressões Regulares (RegEx)
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Teste padrões RegEx em tempo real com realce visual de correspondências, grupos de captura e biblioteca de expressões para e-mails, URLs e IPs.
+          </p>
+        </a>
+        
+        <a href="/pt/jwt-token-decoder" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Decodificador de Tokens JWT e Verificador de Expiração
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Decodifique tokens JWT no próprio navegador para visualizar cabeçalhos, payloads e prazos de validade com total sigilo dos dados.
+          </p>
+        </a>
+        
+        <a href="/pt/hash-generator-md5-sha256" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Gerador de Hashes Criptográficos (MD5, SHA-256, SHA-512)
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Gere hashes criptográficos ultra-rápidos para strings com MD5, SHA-1, SHA-256 e SHA-512 usando aceleração de hardware no navegador.
+          </p>
+        </a>
+        
+        <a href="/pt/unix-timestamp-epoch-converter" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Conversor de Timestamp Unix Epoch para Data Legível
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Converta timestamps Unix em segundos e milissegundos para horário local brasileiro, UTC e ISO-8601 com relógio digital em tempo real.
+          </p>
+        </a>
+        
+        <a href="/pt/uuid-guid-v4-generator" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Gerador de UUID e GUID v4 Online (Criptografia CSPRNG)
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Gere múltiplos identificadores UUIDv4 e GUID em lote de forma aleatória, segura e compatível com a RFC 4122 diretamente no navegador.
+          </p>
+        </a>
+        
+        <a href="/pt/url-encoder-decoder-parser" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Codificador e Decodificador URL Online (RFC 3986)
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Codifique e decodifique endereços URL e parâmetros com conformidade RFC 3986 e análise estruturada de consultas.
+          </p>
+        </a>
+        
+        <a href="/pt/text-diff-checker-compare" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Comparador de Texto e Diff de Código Online
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Compare textos ou códigos lado a lado no navegador com destaque visual colorido para adições, remoções e alterações.
+          </p>
+        </a>
+        
       </div>
     </div>
   </section>
@@ -1282,7 +1500,7 @@
             <span>🌐</span> <span>Matriz Global Multilíngue</span>
           </h3>
           <p class="text-xs opacity-60 mt-0.5 font-mono">
-            7 Idiomas Globais · 203 Endpoints Localizados · 100% no Navegador
+            7 Idiomas Globais · 266 Endpoints Localizados · 100% no Navegador
           </p>
         </div>
         <span class="text-xs font-mono opacity-50">[PT] Português (pt)</span>
@@ -1293,43 +1511,43 @@
         <a href="/" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[EN]</div>
           <div class="text-xs font-bold truncate group-hover:underline">English</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Todas as Ferramentas</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Todas as Ferramentas</div>
         </a>
         
         <a href="/zh/" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[ZH]</div>
           <div class="text-xs font-bold truncate group-hover:underline">简体中文</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Todas as Ferramentas</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Todas as Ferramentas</div>
         </a>
         
         <a href="/es/" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[ES]</div>
           <div class="text-xs font-bold truncate group-hover:underline">Español</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Todas as Ferramentas</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Todas as Ferramentas</div>
         </a>
         
         <a href="/pt/" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ring-2 ring-[#10b981]/50">
           <div class="text-xl mb-1">[PT]</div>
           <div class="text-xs font-bold truncate group-hover:underline">Português</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Todas as Ferramentas</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Todas as Ferramentas</div>
         </a>
         
         <a href="/de/" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[DE]</div>
           <div class="text-xs font-bold truncate group-hover:underline">Deutsch</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Todas as Ferramentas</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Todas as Ferramentas</div>
         </a>
         
         <a href="/fr/" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[FR]</div>
           <div class="text-xs font-bold truncate group-hover:underline">Français</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Todas as Ferramentas</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Todas as Ferramentas</div>
         </a>
         
         <a href="/ja/" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[JA]</div>
           <div class="text-xs font-bold truncate group-hover:underline">日本語</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Todas as Ferramentas</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Todas as Ferramentas</div>
         </a>
         
       </div>
@@ -1337,16 +1555,6 @@
   </section>
 
   <!-- Comprehensive Multi-Column Footer -->
-  
-  <!-- Verified Global Native Ad Banner (*.globalcorehub.com) -->
-  <section class="max-w-5xl mx-auto px-4 my-8 w-full" data-ad-wrapper="native-banner">
-    <div class="rounded-xl border border-slate-700/60 bg-slate-900/40 p-4 text-center backdrop-blur-sm shadow-lg">
-      <span class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold mb-2 block">Sponsored / Advertisement</span>
-      <div id="container-411eda7150daa05047a0b4f542aa62eb" class="min-h-[100px] flex items-center justify-center"></div>
-      <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/411eda7150daa05047a0b4f542aa62eb/invoke.js"></script>
-    </div>
-  </section>
-
   <footer class="border-t border-[#1e2333] pt-12 pb-8 text-xs opacity-90">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -1471,6 +1679,13 @@
                 <span>🌐</span> <span>globalcorehub.com</span>
               </a>
             </li>
+            
+            <li>
+              <a href="https://dischargeconceiteffort.com/bs4tah5fhz?key=f031a850339a5c91e7f30d97af3de3b2" target="_blank" rel="sponsored noopener noreferrer" class="opacity-80 hover:opacity-100 hover:underline transition flex items-center gap-1 text-amber-500 font-bold">
+                <span>⚡</span> <span>Partner Resources ↗</span>
+              </a>
+            </li>
+            
             <li class="pt-1 text-[10px] opacity-50 font-mono">
               ⚡ Cloudflare Edge · 0ms Inicialização a Frio
             </li>
@@ -1490,15 +1705,6 @@
         </div>
       </div>
     </div>
-  
-      <!-- Smartlink Partner Recommendation -->
-      <div class="my-4 pt-4 border-t border-slate-700/30 flex items-center justify-center" data-ad-wrapper="smartlink">
-        <a href="https://dischargeconceiteffort.com/bs4tah5fhz?key=f031a850339a5c91e7f30d97af3de3b2" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/30 transition shadow-sm">
-          <span>⚡ Featured Partner Resources &amp; Global Tools</span>
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-
   </footer>
 
   <!-- Floating Back to Top Button -->
@@ -1528,11 +1734,20 @@
       });
     }
 
-    // 0.1 Quick Search Trigger Action
+    // 0.1 Quick Search Trigger Action with Header Offset
     function triggerSearchFocus() {
       const searchInput = document.getElementById('tool-search');
       if (searchInput) {
-        searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const header = document.querySelector('header') || document.querySelector('nav');
+        const headerOffset = (header ? header.offsetHeight : 70) + 24;
+        const elementPosition = searchInput.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+
         setTimeout(() => {
           try {
             searchInput.focus({ preventScroll: true });
@@ -1694,10 +1909,8 @@
       });
     }
   })();
-  </script>
 
-  <!-- Fluid Motion Helpers (Counter Ticker & Tactile Feedback) -->
-  <script>
+  // 3. Fluid Motion Helpers (Counter Ticker & Tactile Feedback)
   window.animateCounter = function(element, targetValue, duration, prefix, suffix, decimals) {
     if (!element) return;
     duration = duration || 800;
@@ -1720,6 +1933,5 @@
     requestAnimationFrame(update);
   };
   </script>
-
 </body>
 </html>

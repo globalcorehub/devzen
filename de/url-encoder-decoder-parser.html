@@ -217,6 +217,48 @@
       box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.45) !important;
       border-color: rgb(16, 185, 129) !important;
     }
+
+    /* Fluid Motion & Micro-Interactions Suite */
+    @keyframes subtle-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes ambient-glow {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.06); }
+    }
+    @keyframes shimmer-sweep {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+    @keyframes spring-pop {
+      0% { transform: scale(0.6); opacity: 0; }
+      60% { transform: scale(1.2); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .motion-float {
+      animation: subtle-float 6s ease-in-out infinite;
+    }
+    .motion-glow {
+      animation: ambient-glow 7s ease-in-out infinite;
+    }
+    .motion-card {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+      will-change: transform;
+    }
+    .motion-card:hover {
+      transform: translateY(-4px);
+    }
+    .motion-btn {
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+      will-change: transform;
+    }
+    .motion-btn:active {
+      transform: scale(0.96);
+    }
+    .spring-pop {
+      animation: spring-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
   </style>
 
   <!-- Structured Data JSON-LD (WebSite & SearchAction) -->
@@ -302,56 +344,6 @@
 
   <!-- Google AdSense Monetization (Activated when site traffic qualifies and client ID is set) -->
   
-
-  <!-- Fluid Motion & Micro-Interactions Suite -->
-  <style>
-    @keyframes subtle-float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-    @keyframes ambient-glow {
-      0%, 100% { opacity: 0.35; transform: scale(1); }
-      50% { opacity: 0.65; transform: scale(1.06); }
-    }
-    @keyframes shimmer-sweep {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(200%); }
-    }
-    @keyframes spring-pop {
-      0% { transform: scale(0.6); opacity: 0; }
-      60% { transform: scale(1.2); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    @keyframes pulse-ring {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-    }
-    .motion-float {
-      animation: subtle-float 6s ease-in-out infinite;
-    }
-    .motion-glow {
-      animation: ambient-glow 7s ease-in-out infinite;
-    }
-    .motion-card {
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
-      will-change: transform;
-    }
-    .motion-card:hover {
-      transform: translateY(-4px);
-    }
-    .motion-btn {
-      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
-      will-change: transform;
-    }
-    .motion-btn:active {
-      transform: scale(0.96);
-    }
-    .spring-pop {
-      animation: spring-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    }
-  </style>
-
 </head>
 <body class="bg-[#0c0e14] text-[#e2e8f0] min-h-screen flex flex-col transition-colors duration-200">
 
@@ -400,7 +392,7 @@
           <div id="tools-dropdown-panel" class="hidden absolute left-0 mt-1.5 w-72 sm:w-80 rounded-2xl bg-[#11141d] border border-[#1e2333] hover:border-[#10b981]/50 shadow-[0_4px_20px_rgba(0,0,0,0.5)] shadow-2xl z-50 p-2 font-mono text-xs backdrop-blur-xl">
             <div class="flex items-center justify-between px-2.5 py-1 text-[10px] uppercase tracking-wider opacity-50 border-b border-white/10 mb-1">
               <span>Entwickler-Werkzeuge Index</span>
-              <span>28 Alle Werkzeuge</span>
+              <span>37 Alle Werkzeuge</span>
             </div>
             <div class="max-h-72 overflow-y-auto space-y-0.5">
               
@@ -628,6 +620,78 @@
                 <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
               </a>
               
+              <a href="/de/json-formatter-validator" title="JSON Formatierer, Beautifier & Syntax-Validator Online" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">JSON Format</div>
+                  <div class="text-[10px] opacity-50 truncate">JSON-Dateien online formatieren, verschönern, validieren und minimieren. 100% im Browser ausgeführt mit sofortiger Syntaxfehler-Erkennung.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/de/base64-encoder-decoder" title="Base64 Kodierer & Dekodierer Online (UTF-8 & URL-Safe)" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Base64 Codec</div>
+                  <div class="text-[10px] opacity-50 truncate">Text in Base64 umwandeln oder Base64-Zeichenketten sekundenschnell decodieren – mit voller Unterstützung für Umlaute (UTF-8) und URLs.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/de/regex-tester-debugger" title="RegEx Tester & Debugger Online (Reguläre Ausdrücke)" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">RegEx Tester</div>
+                  <div class="text-[10px] opacity-50 truncate">Reguläre Ausdrücke online testen und debuggen mit sofortiger Farbhervorhebung, Erfassungsgruppen und Vorlagen für E-Mail, URL und IP-Adressen.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/de/jwt-token-decoder" title="JWT Token Dekodierer & Gültigkeits-Prüfer Online" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">JWT Decoder</div>
+                  <div class="text-[10px] opacity-50 truncate">JSON Web Tokens sicher im Browser decodieren. Header, Payload und Ablaufzeitpunkt einsehen, ohne geheime Schlüssel an Server zu senden.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/de/hash-generator-md5-sha256" title="Kryptografischer Hash Generator (MD5, SHA-256, SHA-512)" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Hash Generator</div>
+                  <div class="text-[10px] opacity-50 truncate">Prüfsummen und kryptografische Hashes wie SHA-256, MD5 und SHA-512 in Echtzeit im Browser berechnen. Sicher, schnell und privat.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/de/unix-timestamp-epoch-converter" title="Unix Zeitstempel Konverter (Epoch zu Datum & Uhrzeit)" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Unix Zeitstempel</div>
+                  <div class="text-[10px] opacity-50 truncate">Unix-Zeitstempel in Sekunden und Millisekunden sekundenschnell in lokales Datum, UTC und ISO-8601 umwandeln mit Live-Uhrzeit.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/de/uuid-guid-v4-generator" title="UUID / GUID v4 Generator Online (Kryptografisch Sicher)" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">UUID Generator</div>
+                  <div class="text-[10px] opacity-50 truncate">Zufällige UUIDv4 und GUID Identifikatoren stapelweise generieren mit Web Crypto CSPRNG nach RFC 4122. Konfigurierbar mit Großschreibung.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/de/url-encoder-decoder-parser" title="URL Encoder & Decoder Online (RFC 3986 URL-Kodierung)" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">URL Codec</div>
+                  <div class="text-[10px] opacity-50 truncate">URLs und Abfrageparameter sicher nach RFC 3986 online kodieren und dekodieren mit visueller Parameter-Aufschlüsselung.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
+              <a href="/de/text-diff-checker-compare" title="Text Diff Checker & Code-Vergleich Online" class="flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 transition group/item">
+                <div class="truncate mr-2">
+                  <div class="font-bold text-xs group-hover/item:text-brand transition truncate">Diff Checker</div>
+                  <div class="text-[10px] opacity-50 truncate">Zwei Texte oder Codezeilen online nebeneinander vergleichen mit farblicher Hervorhebung von Unterschieden und Zeilenänderungen.</div>
+                </div>
+                <span class="text-[10px] opacity-30 font-mono group-hover/item:opacity-80 transition">&rarr;</span>
+              </a>
+              
             </div>
             <div class="mt-1.5 pt-1.5 border-t border-white/10 px-2 flex items-center justify-between">
               <a href="/de/#tools-grid" class="text-[11px] font-bold hover:underline flex items-center space-x-1" style="color: #10b981">
@@ -650,13 +714,15 @@
       <!-- Action Items & Language Selector & Quick Search & Mobile Hamburger -->
       <div class="flex items-center space-x-2 sm:space-x-3">
         <!-- Quick Search Trigger in Header -->
-          <button id="global-search-btn" type="button" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-black/15 hover:bg-black/30 text-xs font-mono opacity-80 hover:opacity-100 transition" title="Werkzeuge nach Stichwort, Format oder Einsatzzweck filtern... (Taste / drücken)">
+        <button id="global-search-btn" type="button" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-black/15 hover:bg-black/30 text-xs font-mono opacity-80 hover:opacity-100 transition" title="Werkzeuge nach Stichwort, Format oder Einsatzzweck filtern... (Taste / drücken)">
           <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
           <span class="hidden sm:inline opacity-70">Suchen</span>
           <kbd class="hidden sm:inline text-[9px] px-1 py-0.5 rounded border border-[#1e2333] hover:border-[#10b981]/50 opacity-50 bg-black/20 font-mono">Ctrl+K</kbd>
         </button>
+
+
 
         <!-- 7-Language International Dropdown -->
         <div class="relative inline-block text-left" id="lang-container">
@@ -721,6 +787,8 @@
     <div id="mobile-menu" class="hidden md:hidden border-t border-[#1e2333] bg-[#11141d]/90 backdrop-blur-md px-4 pt-3 pb-5 space-y-2 backdrop-blur-lg">
       <a href="/de/" class="block px-3 py-2 rounded-xl text-sm font-semibold hover:bg-white/10 transition">Startseite</a>
 
+
+
       <!-- Quick Search Trigger in Mobile Drawer -->
       <button id="mobile-search-trigger" type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-black/20 text-xs font-mono opacity-80">
         <span class="flex items-center space-x-2">
@@ -734,7 +802,7 @@
 
       <!-- Tools Group in Mobile Drawer -->
       <div class="pt-2 border-t border-[#1e2333]">
-        <div class="text-[10px] font-mono uppercase tracking-wider opacity-50 px-3 mb-1">Alle Werkzeuge (28)</div>
+        <div class="text-[10px] font-mono uppercase tracking-wider opacity-50 px-3 mb-1">Alle Werkzeuge (37)</div>
         <div class="space-y-1 max-h-60 overflow-y-auto">
           
           <a href="/de/json-formatter-validator" title="JSON Formatierer, Beautifier & Syntax-Validator Online" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
@@ -829,6 +897,51 @@
           
           <a href="/de/developer-api-curl-command-generator-instant-3" title="Developer Api & Curl Command Generator Instant 3" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
             <span class="truncate">Developer Api &</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/de/json-formatter-validator" title="JSON Formatierer, Beautifier & Syntax-Validator Online" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">JSON Format</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/de/base64-encoder-decoder" title="Base64 Kodierer & Dekodierer Online (UTF-8 & URL-Safe)" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Base64 Codec</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/de/regex-tester-debugger" title="RegEx Tester & Debugger Online (Reguläre Ausdrücke)" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">RegEx Tester</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/de/jwt-token-decoder" title="JWT Token Dekodierer & Gültigkeits-Prüfer Online" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">JWT Decoder</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/de/hash-generator-md5-sha256" title="Kryptografischer Hash Generator (MD5, SHA-256, SHA-512)" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Hash Generator</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/de/unix-timestamp-epoch-converter" title="Unix Zeitstempel Konverter (Epoch zu Datum & Uhrzeit)" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Unix Zeitstempel</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/de/uuid-guid-v4-generator" title="UUID / GUID v4 Generator Online (Kryptografisch Sicher)" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">UUID Generator</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/de/url-encoder-decoder-parser" title="URL Encoder & Decoder Online (RFC 3986 URL-Kodierung)" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">URL Codec</span>
+            <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
+          </a>
+          
+          <a href="/de/text-diff-checker-compare" title="Text Diff Checker & Code-Vergleich Online" class="block px-3 py-2 rounded-xl text-xs font-medium hover:bg-white/10 transition opacity-80 hover:opacity-100 flex items-center justify-between">
+            <span class="truncate">Diff Checker</span>
             <span class="text-xs opacity-30 font-mono ml-2">&rarr;</span>
           </a>
           
@@ -1160,6 +1273,21 @@
         
 
     
+    <!-- GlobalCoreHub Native Multi-Format Ad Slot -->
+    <aside class="my-8 mx-auto max-w-5xl px-2 sm:px-4" aria-label="Sponsored Partner Content">
+      <div class="rounded-2xl border border-[#1e2333] hover:border-[#10b981]/50 bg-black/[0.03] dark:bg-white/[0.03] p-3 sm:p-5 text-center overflow-hidden transition-all">
+        <div class="text-[10px] uppercase font-mono tracking-widest opacity-40 mb-2.5 flex items-center justify-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span>SPONSORED PARTNER CONTENT</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+        </div>
+        <div id="container-411eda7150daa05047a0b4f542aa62eb" class="min-h-[100px] flex items-center justify-center"></div>
+        <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/411eda7150daa05047a0b4f542aa62eb/invoke.js"></script>
+      </div>
+    </aside>
+    
+
+    
   </main>
 
   <!-- Internal Linking Matrix -->
@@ -1169,7 +1297,7 @@
         <h3 class="text-sm font-bold uppercase tracking-wider opacity-80 font-mono">
           [+] Entwickler-Werkzeuge Index
         </h3>
-        <span class="text-xs opacity-60 font-mono">28 Alle Werkzeuge</span>
+        <span class="text-xs opacity-60 font-mono">37 Alle Werkzeuge</span>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -1426,6 +1554,87 @@
           </p>
         </a>
         
+        <a href="/de/json-formatter-validator" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            JSON Formatierer, Beautifier & Syntax-Validator Online
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            JSON-Dateien online formatieren, verschönern, validieren und minimieren. 100% im Browser ausgeführt mit sofortiger Syntaxfehler-Erkennung.
+          </p>
+        </a>
+        
+        <a href="/de/base64-encoder-decoder" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Base64 Kodierer & Dekodierer Online (UTF-8 & URL-Safe)
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Text in Base64 umwandeln oder Base64-Zeichenketten sekundenschnell decodieren – mit voller Unterstützung für Umlaute (UTF-8) und URLs.
+          </p>
+        </a>
+        
+        <a href="/de/regex-tester-debugger" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            RegEx Tester & Debugger Online (Reguläre Ausdrücke)
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Reguläre Ausdrücke online testen und debuggen mit sofortiger Farbhervorhebung, Erfassungsgruppen und Vorlagen für E-Mail, URL und IP-Adressen.
+          </p>
+        </a>
+        
+        <a href="/de/jwt-token-decoder" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            JWT Token Dekodierer & Gültigkeits-Prüfer Online
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            JSON Web Tokens sicher im Browser decodieren. Header, Payload und Ablaufzeitpunkt einsehen, ohne geheime Schlüssel an Server zu senden.
+          </p>
+        </a>
+        
+        <a href="/de/hash-generator-md5-sha256" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Kryptografischer Hash Generator (MD5, SHA-256, SHA-512)
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Prüfsummen und kryptografische Hashes wie SHA-256, MD5 und SHA-512 in Echtzeit im Browser berechnen. Sicher, schnell und privat.
+          </p>
+        </a>
+        
+        <a href="/de/unix-timestamp-epoch-converter" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Unix Zeitstempel Konverter (Epoch zu Datum & Uhrzeit)
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Unix-Zeitstempel in Sekunden und Millisekunden sekundenschnell in lokales Datum, UTC und ISO-8601 umwandeln mit Live-Uhrzeit.
+          </p>
+        </a>
+        
+        <a href="/de/uuid-guid-v4-generator" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            UUID / GUID v4 Generator Online (Kryptografisch Sicher)
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Zufällige UUIDv4 und GUID Identifikatoren stapelweise generieren mit Web Crypto CSPRNG nach RFC 4122. Konfigurierbar mit Großschreibung.
+          </p>
+        </a>
+        
+        <a href="/de/url-encoder-decoder-parser" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            URL Encoder & Decoder Online (RFC 3986 URL-Kodierung)
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            URLs und Abfrageparameter sicher nach RFC 3986 online kodieren und dekodieren mit visueller Parameter-Aufschlüsselung.
+          </p>
+        </a>
+        
+        <a href="/de/text-diff-checker-compare" class="p-3.5 rounded-lg border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] transition group block">
+          <div class="text-xs font-bold truncate group-hover:underline">
+            Text Diff Checker & Code-Vergleich Online
+          </div>
+          <p class="text-[11px] opacity-60 mt-1 line-clamp-1">
+            Zwei Texte oder Codezeilen online nebeneinander vergleichen mit farblicher Hervorhebung von Unterschieden und Zeilenänderungen.
+          </p>
+        </a>
+        
       </div>
     </div>
   </section>
@@ -1439,7 +1648,7 @@
             <span>🌐</span> <span>Globales Mehrsprachiges Netzwerk</span>
           </h3>
           <p class="text-xs opacity-60 mt-0.5 font-mono">
-            7 Globale Sprachen · 203 Lokalisierte Endpunkte · 100% Client-seitig
+            7 Globale Sprachen · 266 Lokalisierte Endpunkte · 100% Client-seitig
           </p>
         </div>
         <span class="text-xs font-mono opacity-50">[DE] Deutsch (de)</span>
@@ -1450,43 +1659,43 @@
         <a href="/url-encoder-decoder-parser" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[EN]</div>
           <div class="text-xs font-bold truncate group-hover:underline">English</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Alle Werkzeuge</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Alle Werkzeuge</div>
         </a>
         
         <a href="/zh/url-encoder-decoder-parser" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[ZH]</div>
           <div class="text-xs font-bold truncate group-hover:underline">简体中文</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Alle Werkzeuge</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Alle Werkzeuge</div>
         </a>
         
         <a href="/es/url-encoder-decoder-parser" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[ES]</div>
           <div class="text-xs font-bold truncate group-hover:underline">Español</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Alle Werkzeuge</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Alle Werkzeuge</div>
         </a>
         
         <a href="/pt/url-encoder-decoder-parser" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[PT]</div>
           <div class="text-xs font-bold truncate group-hover:underline">Português</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Alle Werkzeuge</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Alle Werkzeuge</div>
         </a>
         
         <a href="/de/url-encoder-decoder-parser" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ring-2 ring-[#10b981]/50">
           <div class="text-xl mb-1">[DE]</div>
           <div class="text-xs font-bold truncate group-hover:underline">Deutsch</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Alle Werkzeuge</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Alle Werkzeuge</div>
         </a>
         
         <a href="/fr/url-encoder-decoder-parser" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[FR]</div>
           <div class="text-xs font-bold truncate group-hover:underline">Français</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Alle Werkzeuge</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Alle Werkzeuge</div>
         </a>
         
         <a href="/ja/url-encoder-decoder-parser" class="p-3 rounded-xl border border-[#1e2333] hover:border-[#10b981]/50 bg-[#11141d] hover:border-[#10b981] transition group flex flex-col justify-between text-center ">
           <div class="text-xl mb-1">[JA]</div>
           <div class="text-xs font-bold truncate group-hover:underline">日本語</div>
-          <div class="text-[10px] opacity-50 font-mono mt-1">28 Alle Werkzeuge</div>
+          <div class="text-[10px] opacity-50 font-mono mt-1">37 Alle Werkzeuge</div>
         </a>
         
       </div>
@@ -1494,20 +1703,6 @@
   </section>
 
   <!-- Comprehensive Multi-Column Footer -->
-  
-  <!-- Verified Global Native Ad Banner (*.globalcorehub.com) -->
-      <a href="https://dischargeconceiteffort.com/bs4tah5fhz?key=f031a850339a5c91e7f30d97af3de3b2" target="_blank" rel="sponsored noopener noreferrer" class="text-amber-500 hover:text-amber-400 font-bold underline flex items-center gap-1 flex-shrink-0">
-        <span>Partner Solutions ↗</span>
-      </a>
-    </div>
-<section class="max-w-5xl mx-auto px-4 my-8 w-full" data-ad-wrapper="native-banner">
-    <div class="rounded-xl border border-slate-700/60 bg-slate-900/40 p-4 text-center backdrop-blur-sm shadow-lg">
-      <span class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold mb-2 block">Sponsored / Advertisement</span>
-      <div id="container-411eda7150daa05047a0b4f542aa62eb" class="min-h-[100px] flex items-center justify-center"></div>
-      <script async="async" data-cfasync="false" src="https://dischargeconceiteffort.com/411eda7150daa05047a0b4f542aa62eb/invoke.js"></script>
-    </div>
-  </section>
-
   <footer class="border-t border-[#1e2333] pt-12 pb-8 text-xs opacity-90">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -1632,6 +1827,13 @@
                 <span>🌐</span> <span>globalcorehub.com</span>
               </a>
             </li>
+            
+            <li>
+              <a href="https://dischargeconceiteffort.com/bs4tah5fhz?key=f031a850339a5c91e7f30d97af3de3b2" target="_blank" rel="sponsored noopener noreferrer" class="opacity-80 hover:opacity-100 hover:underline transition flex items-center gap-1 text-amber-500 font-bold">
+                <span>⚡</span> <span>Partner Resources ↗</span>
+              </a>
+            </li>
+            
             <li class="pt-1 text-[10px] opacity-50 font-mono">
               ⚡ Cloudflare Edge · 0ms Kaltstart
             </li>
@@ -1651,15 +1853,6 @@
         </div>
       </div>
     </div>
-  
-      <!-- Smartlink Partner Recommendation -->
-      <div class="my-4 pt-4 border-t border-slate-700/30 flex items-center justify-center" data-ad-wrapper="smartlink">
-        <a href="https://dischargeconceiteffort.com/bs4tah5fhz?key=f031a850339a5c91e7f30d97af3de3b2" target="_blank" rel="sponsored noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/30 transition shadow-sm">
-          <span>⚡ Featured Partner Resources &amp; Global Tools</span>
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-        </a>
-      </div>
-
   </footer>
 
   <!-- Floating Back to Top Button -->
@@ -1689,11 +1882,20 @@
       });
     }
 
-    // 0.1 Quick Search Trigger Action
+    // 0.1 Quick Search Trigger Action with Header Offset
     function triggerSearchFocus() {
       const searchInput = document.getElementById('tool-search');
       if (searchInput) {
-        searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const header = document.querySelector('header') || document.querySelector('nav');
+        const headerOffset = (header ? header.offsetHeight : 70) + 24;
+        const elementPosition = searchInput.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+
         setTimeout(() => {
           try {
             searchInput.focus({ preventScroll: true });
@@ -1855,10 +2057,8 @@
       });
     }
   })();
-  </script>
 
-  <!-- Fluid Motion Helpers (Counter Ticker & Tactile Feedback) -->
-  <script>
+  // 3. Fluid Motion Helpers (Counter Ticker & Tactile Feedback)
   window.animateCounter = function(element, targetValue, duration, prefix, suffix, decimals) {
     if (!element) return;
     duration = duration || 800;
@@ -1881,6 +2081,5 @@
     requestAnimationFrame(update);
   };
   </script>
-
 </body>
 </html>
